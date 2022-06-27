@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+service StitchSrv {
+    rpc start(StitchArgs) returns (stream Progress) {}
+    rpc cancel(StitchArgs) returns (Response) {}
+}
+
+message StitchArgs {
+    string prj = 1;
+    string poi =2;
+}
+
+message Response {
+    bool status = 1;
+}
+
+message Progress {
+    int32 progress = 2;
+}
